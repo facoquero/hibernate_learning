@@ -9,6 +9,5 @@ public class Application {
 
         session.beginTransaction();
         session.close();
-
     }
 }
