@@ -34,6 +34,12 @@ public class Application {
         session.update(user);
         session.getTransaction().commit();
 
+        session.beginTransaction();
+        User dbUser = session.get(User.class, user.getUserId());
+        session.update(dbUser.setCreatedBy("King Kong"));
+        session.getTransaction().commit();
+
+
         session.close();
         exit(0);
     }

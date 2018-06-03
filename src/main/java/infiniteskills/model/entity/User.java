@@ -25,9 +25,9 @@ public class User {
     private String lastUpdatedBy;
     @Column(name = "LAST_UPDATED_DATE")
     private LocalDate lastUpdatedDate;
-    @Column(name = "CREATED_BY")
+    @Column(name = "CREATED_BY", updatable = false)
     private String createdBy;
-    @Column(name = "CREATED_DATE")
+    @Column(name = "CREATED_DATE", updatable = false)
     private LocalDate createdDate;
 
     public long getUserId() {
