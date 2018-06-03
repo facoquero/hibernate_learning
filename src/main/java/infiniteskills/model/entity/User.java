@@ -13,21 +13,21 @@ public class User {
     @Access(value = AccessType.PROPERTY)
     private long userId;
 
-    @Column(name = "FIRST_NAME")
+    @Column(name = "FIRST_NAME", nullable = false)
     private String firstName;
-    @Column(name = "LAST_NAME")
+    @Column(name = "LAST_NAME", nullable = false)
     private String lastName;
-    @Column(name = "BIRTH_DATE")
+    @Column(name = "BIRTH_DATE", nullable = false)
     private LocalDate birthDate;
-    @Column(name = "EMAIL_ADDRESS")
+    @Column(name = "EMAIL_ADDRESS", nullable = false)
     private String emailAdress;
-    @Column(name = "LAST_UPDATED_BY")
+    @Column(name = "LAST_UPDATED_BY", nullable = false)
     private String lastUpdatedBy;
-    @Column(name = "LAST_UPDATED_DATE")
+    @Column(name = "LAST_UPDATED_DATE", nullable = false)
     private LocalDate lastUpdatedDate;
-    @Column(name = "CREATED_BY", updatable = false)
+    @Column(name = "CREATED_BY", updatable = false, nullable = false)
     private String createdBy;
-    @Column(name = "CREATED_DATE", updatable = false)
+    @Column(name = "CREATED_DATE", updatable = false, nullable = false)
     private LocalDate createdDate;
 
     public long getUserId() {

@@ -2,6 +2,7 @@ package infiniteskills;
 
 import infiniteskills.model.HibernateUtil;
 import infiniteskills.model.entity.User;
+import org.hibernate.PropertyValueException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -34,13 +35,31 @@ public class Application {
         session.update(user);
         session.getTransaction().commit();
 
-        session.beginTransaction();
-        User dbUser = session.get(User.class, user.getUserId());
-        session.update(dbUser.setCreatedBy("King Kong"));
-        session.getTransaction().commit();
+
+        checkingIfUpdatableWorks(session, user);
+        checkingIfNullableWorks(session);
+
 
 
         session.close();
         exit(0);
+    }
+
+    private static void checkingIfNullableWorks(Session session) {
+        try {
+            session.beginTransaction();
+            session.save(new User().setFirstName("Alfred").setLastName("Moreno"));
+            session.getTransaction().commit();
+        } catch (PropertyValueException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private static void checkingIfUpdatableWorks(Session session, User user) {
+        session.beginTransaction();
+        User dbUser = session.get(User.class, user.getUserId());
+        session.update(dbUser.setCreatedBy("King Kong"));
+        session.getTransaction().commit();
     }
 }
