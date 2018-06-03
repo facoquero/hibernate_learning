@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="FINANCES_USER")
+@Table(name = "FINANCES_USER")
 public class User {
 
     @Id
@@ -29,6 +29,8 @@ public class User {
     private String createdBy;
     @Column(name = "CREATED_DATE", updatable = false, nullable = false)
     private LocalDate createdDate;
+    @Transient
+    private boolean isAdult;
 
     public long getUserId() {
         return userId;
@@ -109,5 +111,9 @@ public class User {
     public User setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
         return this;
+    }
+
+    public boolean isAdult() {
+        return LocalDate.now().getYear() - getBirthDate().getYear() >= 18;
     }
 }

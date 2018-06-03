@@ -17,6 +17,8 @@ public class Application {
         User user = createConrado();
         saving(session, user);
 
+        assert user.isAdult();
+
         user.setLastName("Conteno");
         updating(session, user);
 
