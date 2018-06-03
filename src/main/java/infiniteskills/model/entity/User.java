@@ -10,6 +10,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID")
+    @Access(value = AccessType.PROPERTY)
     private long userId;
 
     @Column(name = "FIRST_NAME")
@@ -28,84 +29,85 @@ public class User {
     private String createdBy;
     @Column(name = "CREATED_DATE")
     private LocalDate createdDate;
-//    private String userAddressLine1;
-//    private String userAddressLine2;
-//    private String city;
-//    private String state;
 
     public long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public User setUserId(long userId) {
         this.userId = userId;
+        return this;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public User setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public User setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
     }
 
     public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public User setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+        return this;
     }
 
     public String getEmailAdress() {
         return emailAdress;
     }
 
-    public void setEmailAdress(String emailAdress) {
+    public User setEmailAdress(String emailAdress) {
         this.emailAdress = emailAdress;
+        return this;
     }
 
     public String getLastUpdatedBy() {
         return lastUpdatedBy;
     }
 
-    public void setLastUpdatedBy(String lastUpdatedBy) {
+    public User setLastUpdatedBy(String lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
+        return this;
     }
 
     public LocalDate getLastUpdatedDate() {
         return lastUpdatedDate;
     }
 
-    public void setLastUpdatedDate(LocalDate lastUpdatedDate) {
+    public User setLastUpdatedDate(LocalDate lastUpdatedDate) {
         this.lastUpdatedDate = lastUpdatedDate;
+        return this;
     }
 
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(String createdBy) {
+    public User setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
+        return this;
     }
 
     public LocalDate getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
+    public User setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
+        return this;
     }
-
-//    private String zipCode;
-
-
 }
