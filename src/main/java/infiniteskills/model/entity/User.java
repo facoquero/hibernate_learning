@@ -32,6 +32,58 @@ public class User {
     @Transient
     private boolean isAdult;
 
+
+    @Column(name = "USER_ADDRESS_LINE_1")
+    private String userAddressLine1;
+    @Column(name = "USER_ADDRESS_LINE_2")
+    private String userAddressLine2;
+    @Column(name = "CITY")
+    private String city;
+    @Column(name = "STATE")
+    private String state;
+    @Column(name = "ZIP_CODE")
+    private String zipCode;
+
+    public String getUserAddressLine1() {
+        return userAddressLine1;
+    }
+
+    public void setUserAddressLine1(String userAddressLine1) {
+        this.userAddressLine1 = userAddressLine1;
+    }
+
+    public String getUserAddressLine2() {
+        return userAddressLine2;
+    }
+
+    public void setUserAddressLine2(String userAddressLine2) {
+        this.userAddressLine2 = userAddressLine2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
     public long getUserId() {
         return userId;
     }
