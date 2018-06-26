@@ -1,6 +1,7 @@
 package infiniteskills;
 
 import infiniteskills.model.HibernateUtil;
+import infiniteskills.model.entity.Bank;
 import infiniteskills.model.entity.User;
 import org.hibernate.PropertyValueException;
 import org.hibernate.Session;
@@ -14,6 +15,20 @@ public class Application {
     public static void main(String[] args) {
         Session session = HibernateUtil.getSf().openSession();
 
+        handlingUser(session);
+        handlingBank(session);
+
+        session.close();
+        exit(0);
+    }
+
+    private static void handlingBank(Session session) {
+        Bank first = session.get(Bank.class, 1l);
+        System.out.println(first);
+    }
+
+
+    private static void handlingUser(Session session) {
         User user = createConrado();
         saving(session, user);
 
@@ -23,10 +38,7 @@ public class Application {
         updating(session, user);
 
         checkingIfUpdatableWorks(session, user);
-        checkingIfNullableWorks(session);
-
-        session.close();
-        exit(0);
+//        checkingIfNullableWorks(session);
     }
 
     private static void updating(Session session, User user) {

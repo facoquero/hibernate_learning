@@ -1,5 +1,6 @@
 package infiniteskills.model;
 
+import infiniteskills.model.entity.Bank;
 import infiniteskills.model.entity.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -21,6 +22,7 @@ public class HibernateUtil {
             Configuration cfg = new Configuration();
             cfg.addProperties(getProperties());
             cfg.addAnnotatedClass(User.class);
+            cfg.addAnnotatedClass(Bank.class);
             return cfg.buildSessionFactory(new StandardServiceRegistryBuilder().applySettings(cfg.getProperties()).build());
         } catch (Exception e) {
             e.printStackTrace();
